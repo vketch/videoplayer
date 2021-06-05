@@ -16,7 +16,7 @@ In tried it with SD card connected over SDIO interface.
 The SDIO driver is not supported by mbed from the box. 
 I use the NUCLEO-F412ZG with solution based on https://github.com/JojoS62/COMPONENT_SDIO 
 
-# Example of program for  NUCLEO-F412ZG
+## Example of program for  NUCLEO-F412ZG
 ```
 #include "mbed.h"
 #include "SDIOBlockDevice.h"
