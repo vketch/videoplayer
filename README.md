@@ -14,4 +14,36 @@ The player expects raw video on the file system that has to be fast enought to a
 
 In tried it with SD card connected over SDIO interface.
 The SDIO driver is not supported by mbed from the box. 
-For my case NUCLEO-F412ZG I used solution based on https://github.com/JojoS62/COMPONENT_SDIO 
+I use the NUCLEO-F412ZG with solution based on https://github.com/JojoS62/COMPONENT_SDIO 
+
+## Example of program for  NUCLEO-F412ZG
+```
+#include "mbed.h"
+#include "SDIOBlockDevice.h"
+#include "FATFileSystem.h"
+#include "VideoPlayer.h"
+
+DigitalOut led1(LED1);
+
+// File system on SD card connected over SDIO
+static SDIOBlockDevice bd;
+BlockDevice *BlockDevice::get_default_instance() { return &bd; }
+BlockDevice *get_other_blockdevice() { return &bd; }
+BlockDevice *blockDevice = BlockDevice::get_default_instance();
+FATFileSystem fs("sd", blockDevice);
+
+//LCD
+DigitalOut selectSPI(D4, true); // Select SPI iterface on LCD
+ILI9341V myLCD(SPI_DMA_, 10000000, D11, D12, D13, D10, D8, D7, "myLCD");
+
+int main()
+{    
+    myLCD.raw_video("/fs/raw_video.raw", 20 );
+    while (true) {
+        ThisThread::sleep_for(500ms);
+        led1 = !led1;    
+    }
+}
+
+```
+
