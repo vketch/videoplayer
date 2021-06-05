@@ -56,7 +56,6 @@ class ILI9341V : public TFT
 
     void move(int x, int y, int w, int h, unsigned char *bitmap, unsigned short shift=0);
     int BMP_16(int x, int y, const char *Name_BMP);   
-    int raw_video(const char *file_name, uint32_t fps=20 );
 
 protected:
     
