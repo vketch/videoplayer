@@ -326,6 +326,7 @@ int ILI9341V::raw_video(const char *file_name, uint32_t fps )
     Timer time;            
     time.start();
     uint32_t frame_number=0;
+    uint32_t skip_frames=0;    
     while(1){    
         time.reset();
         
@@ -349,7 +350,7 @@ int ILI9341V::raw_video(const char *file_name, uint32_t fps )
                     window_pushpixelbuf( (unsigned short *)(frame + (LineSize) * line), Width);                
             }
             else{
-                debug("skip frame %d\n", frame_number);
+                skip_frames++;
             }
             delta_ms += frame_ms - duration_cast<milliseconds>(time.elapsed_time());
         }        
@@ -357,7 +358,7 @@ int ILI9341V::raw_video(const char *file_name, uint32_t fps )
 
     free (frame);
     fclose(Video);
-
+    debug("total frame%d, skip frame %d\n", frame_number, skip_frames);
     // printf("t1= %lld t2=%lld", time1, time2);    
     if(auto_up) 
         copy_to_lcd();
