@@ -14,4 +14,4 @@ The player expects raw video on the file system that has to be fast enought to a
 
 In tried it with SD card connected over SDIO interface.
 The SDIO driver is not supported by mbed from the box. 
-For my case NUCLEO-F412ZG I used solution based on https://github.com/JojoS62/COMPONENT_SDIO 
+I use the NUCLEO-F412ZG with solution based on https://github.com/JojoS62/COMPONENT_SDIO 
