@@ -89,8 +89,5 @@ bool VideoPlayer::play(File& video_file, uint32_t fps){
     if(_lcd->auto_up) 
         _lcd->copy_to_lcd();
 
-
-    video_file.close();
-
     return true;
 }
