@@ -37,7 +37,7 @@ int main()
 {    
     VideoPlayer video_player(&myLCD);
 
-    File file(&fileSystem, "raw_video.raw");
+    File file(&fs, "raw_video.raw");
     video_player.play(file, 21);
 
     while (true) {
