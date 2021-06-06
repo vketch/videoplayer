@@ -1,15 +1,9 @@
 # The video player based on UniGrapic 
-The video plaer based on UniGrapich library https://os.mbed.com/teams/GraphicsDisplay/code/UniGraphic/.
+The video plaer based on UniGrapich library https://github.com/vketch/UniGraphic
 
-The UniGrapich Library is extended to support 240x240 LCD on ILI9341V driver - 
-https://www.panelook.com/NMLCD-220Q33-2-2-inch-320x320-160nits-39pins-16-bit-RGB-I-F-With-RTP-TN-LCD-detail_83363.html
+The player plays video on the ILI9341V LCD only. But it is easy to improve/extend the player to work with other LCDs the UniGraphic contains.
 
-The player plays video on the above LCD only. But it is easy to improve/extend the player to work with other LCDs the UniGraphic contains.
-
-The playe rallows you to ask which FPS you want to play with. In case there are no capabilities to play with such FPS the player skips frames periodically to keep the timeline properly.  
-
-The UniGrapich Library is extended to support "Fast SPI" that utilises HAL directly as an mbed-os SPI interface is to slow to play video with FPS the video looks smoothly.
-Even the interface is called SPI_DMA but actually it does not support DMA yet(Have a plan to that later). Btw it is much faster than mbed-os SPI. 
+The player allows you to ask which FPS you want to play with. In case there are no capabilities to play with such FPS the player skips frames periodically to keep the timeline properly.  
 
 The player expects raw video on the file system that has to be fast enought to achive FPS you ask. 
 
@@ -22,6 +16,7 @@ I use the NUCLEO-F412ZG with solution based on https://github.com/JojoS62/COMPON
 #include "mbed.h"
 #include "SDIOBlockDevice.h"
 #include "FATFileSystem.h"
+#include "ILI9341V.h"
 #include "VideoPlayer.h"
 
 DigitalOut led1(LED1);
