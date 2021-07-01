@@ -3,7 +3,7 @@ The video plaer based on UniGrapich library https://github.com/vketch/UniGraphic
 
 The player plays video on the ILI9341V LCD only. But it is easy to improve/extend the player to work with other LCDs the UniGraphic contains.
 
-The player allows you to ask which FPS you want to play with. In case there are no capabilities to play with such FPS the player skips frames periodically to keep the timeline properly.  
+The player allows you to ask which FPS you want to play with. In case there are no capabilities to play with asked FPS the player skips frames periodically to keep the timeline properly.  
 
 The player expects raw video on the file system that has to be fast enought to achive FPS you ask. 
 
