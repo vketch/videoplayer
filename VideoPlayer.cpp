@@ -66,8 +66,8 @@ bool VideoPlayer::play(File& video_file, uint32_t fps){
 
             if ( delta_ms > -frame_ms ) // we play not to slow, we disply the frame to LCD
             {
-                for (int i = 0; i < FrameSize; i += 2) // sqap bytes as we pass bitmap as unsinged short
-                    std::swap(frame[i], frame[i + 1]); // !ToDo configure LCD for proper byte order 
+                for (int i = 0; i < FrameSize; i += 2) // swap bytes as we pass bitmap as unsinged short
+                    std::swap(frame[i], frame[i + 1]); // !ToDo configure LCD or video file for proper byte order 
                 for (int line = 0; line < LinesInFrame; line++) // write to LCD line by line
                     _lcd->window_pushpixelbuf( (unsigned short *)(frame + (LineSize) * line), Width);                
             }
